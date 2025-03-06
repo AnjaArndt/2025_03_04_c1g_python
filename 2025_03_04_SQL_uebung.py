@@ -2,10 +2,12 @@ import sqlite3
 from pathlib import Path
 
 
+print (Path(__file__))
+
 def execute_query_and_print_result(sql):
 
-    BASE_PATH = Path(__file__).parent
-    DB_PATH = BASE_PATH / "data/2025_03_03_Material_und_Gehalt_angereichert.db"
+    BASE_PATH = Path(__file__).parent # legt den Ordner, wo das file liegt als parent fest
+    DB_PATH = BASE_PATH / "data/2025_03_03_Material_und_Gehalt_angereichert.db" # das / funktioniert, weil das ein posixpath ist
 
     connection = None
 
@@ -52,6 +54,8 @@ def uebung_5():
                 ORDER BY cnt ASC, typ ASC"""
     execute_query_and_print_result(sql)
 
+# das wird ausgeführt, wenn die Datei direkt als Skript aufgerufen wird,
+# aber nicht, wenn es als Modul aufgerufen wird
 if __name__ == "__main__":
     uebung_1()
     uebung_2()
